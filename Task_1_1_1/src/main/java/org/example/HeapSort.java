@@ -1,6 +1,8 @@
 package org.example;
 
+/* This class provides functionality to sorting int[] data via heapsort */
 public class HeapSort {
+    /* heapsort function enable to call outside the HeapSort class */
     public static int[] heapsort(int[] array) {
         int length = array.length;
 
@@ -21,6 +23,7 @@ public class HeapSort {
         return array;
     }
 
+    /* This function can be called only from HeapSort method */
     private static void heapify(int[] array, int length, int index) {
         int largest = index;
         int left = 2 * index + 1;
