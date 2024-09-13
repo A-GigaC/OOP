@@ -6,8 +6,8 @@ SRC_DIR="src"
 # Compiled classes dir
 BUILD_DIR="build/classes"
 
-# HeapSort class
-HEAPSORT_CLASS="org.example.HeapSort"
+# Main class
+MAIN_CLASS="org.example.Main"
 
 # Jar filename
 JAR_NAME="my-app.jar"
@@ -22,4 +22,7 @@ javac -d "$BUILD_DIR" "$SRC_DIR"/*.java
 javadoc -d "docs" -sourcepath "$SRC_DIR" "$SRC_DIR"/*.java
 
 # Create jar-file
-jar cfe "$JAR_NAME" "$HEAPSORT_CLASS" "$BUILD_DIR"/*.class
+jar cfe "$JAR_NAME" "$MAIN_CLASS" "$BUILD_DIR"/*.class
+
+# Run application
+java -jar "$JAR_NAME"
