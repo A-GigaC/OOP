@@ -1,13 +1,13 @@
 #!/bin/bash
 
 # Source code dir
-SRC_DIR="src"
+SRC_DIR="src/main/java"
+
+# Package name
+PACKAGE_NAME="org/example"
 
 # Compiled classes dir
-BUILD_DIR="build/classes"
-
-# Main class
-MAIN_CLASS="org.example.Main"
+BUILD_DIR="build1/classes"
 
 # Jar filename
 JAR_NAME="my-app.jar"
@@ -16,13 +16,13 @@ JAR_NAME="my-app.jar"
 mkdir -p "$BUILD_DIR"
 
 # Compile source code
-javac -d "$BUILD_DIR" "$SRC_DIR"/*.java
+javac "$SRC_DIR"/"$PACKAGE_NAME"/HeapSort.java "$SRC_DIR"/"$PACKAGE_NAME"/Main.java -d "$BUILD_DIR"
 
 # Generate javadoc documentation
-javadoc -d "docs" -sourcepath "$SRC_DIR" "$SRC_DIR"/*.java
+javadoc -d "docs" -sourcepath "$SRC_DIR" "$SRC_DIR"/"$PACKAGE_NAME"/*.java
 
-# Create jar-file
-jar cfe "$JAR_NAME" "$MAIN_CLASS" "$BUILD_DIR"/*.class
+# Create jar-file ..org.example.Main
+jar cfe "$JAR_NAME" org.example.Main "$BUILD_DIR"/"$PACKAGE_NAME"/*.class
 
 # Run application
-java -jar "$JAR_NAME"
+# java -jar "$JAR_NAME"
