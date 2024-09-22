@@ -158,7 +158,7 @@ public class Blackjack {
     }
 
     private void draw() {
-        System.out.println("\nDraw!" + playerWins + ":" + dealerWins + "\n");
+        System.out.println("\nDraw! " + playerWins + ":" + dealerWins + "\n");
     }
 
     private int checkRoundEnd() {
