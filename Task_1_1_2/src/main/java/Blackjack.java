@@ -69,7 +69,7 @@ public class Blackjack {
             return;
         }
 
-        System.out.println("Input '1' to peek the card and '0' to stop your turn");
+        System.out.println("Input '1' to peek the card and '0' to stop your turn; 'q' for exit");
 
         int input = 1;
         Card gettedCard;
@@ -105,6 +105,8 @@ public class Blackjack {
                 }
             } else if (input == '0') {
                 break;
+            } else if (input == 'q') {
+                return;
             }
         }
 

@@ -19,7 +19,18 @@ public class Deck {
     public Deck() {
         // Init deck (stack object)
         this.deck = new Stack<>();
+        freshDeck();
+    }
 
+    // Pop a card from the top of the deck
+    public Card peek() {
+        if (deck.isEmpty()) {
+            freshDeck();
+        }
+        return deck.pop();
+    }
+
+    private void freshDeck() {
         // Init cardsList
         ArrayList<Card> cardsList = new ArrayList<Card>();
 
@@ -37,10 +48,5 @@ public class Deck {
         for (Card card : cardsList) {
             deck.push(card);
         }
-    }
-
-    // Pop a card from the top of the deck
-    public Card peek() {
-        return deck.pop();
     }
 }
