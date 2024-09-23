@@ -8,14 +8,13 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Stack;
 
-/* Deck class as a wrapper on stack */
+/** Deck class as a wrapper on stack. */
 public class Deck {
     // The basement of Deck-class
     private Stack<Card> deck;
 
-    /* 1. Initialize deck
-     * 2. Shuffle the cards
-     * 3. Fill the deck
+    /** 1. Initialize deck
+     * 2. Use freshDeck().
     */
     public Deck() {
         // Init deck (stack object)
@@ -23,7 +22,7 @@ public class Deck {
         freshDeck();
     }
 
-    // Pop a card from the top of the deck
+    /** Pop a card from the top of the deck. */
     public Card peek() {
         if (deck.isEmpty()) {
             freshDeck();
@@ -31,6 +30,10 @@ public class Deck {
         return deck.pop();
     }
 
+    /**
+     * a. shuffle cards
+     * b. Fill the deck.
+     * */
     private void freshDeck() {
         // Init cardsList
         ArrayList<Card> cardsList = new ArrayList<Card>();

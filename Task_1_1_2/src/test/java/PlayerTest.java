@@ -1,8 +1,9 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-/* All tests for Player class */
+/**  All tests for Player class. */
 public class PlayerTest {
+    /** Check .getScore() correctness. */
     @Test
     public void playerGetScore() {
         Deck deck = new Deck();
@@ -13,6 +14,7 @@ public class PlayerTest {
         Assertions.assertEquals(card.getValue(), player.getScore());
     }
 
+    /** Check .getStatus correctness. */
     @Test
     public void playerGetStatus() {
         Deck deck = new Deck();

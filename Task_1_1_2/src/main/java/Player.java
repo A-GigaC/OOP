@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-/* Player class - describes the player's behaviour */
+/** Player class - describes the player's behaviour. */
 public class Player extends Participant {
 
     public Player(Deck deck) {
@@ -9,7 +9,7 @@ public class Player extends Participant {
         this.deck = deck;
     }
 
-    // Get user status as string
+    /** Get user status as string. */
     public void getStatus() {
         String status = "\tYour cards: [";
 

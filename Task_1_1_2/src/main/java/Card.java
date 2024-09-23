@@ -2,19 +2,21 @@
  * Card class
  */
 
-/* Card class */
+/**
+ * Card class.
+ * */
 public class Card {
     // Class parameters
     private final Suit suit;
     private final Rank rank;
 
-    // Constructor
+    /** Constructor. */
     Card(Suit suit, Rank rank) {
         this.suit = suit;
         this.rank = rank;
     }
 
-    // Getters
+    /** Getters. */
     public Suit getSuit() {
         return suit;
     }

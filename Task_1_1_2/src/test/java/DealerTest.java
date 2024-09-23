@@ -1,8 +1,9 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-/* All tests for Dealer class */
+/** All tests for Dealer class. */
 public class DealerTest {
+    /** Check correctness of .getClosedCard(). */
     @Test
     public void openClosedCardTwice() {
         Deck deck = new Deck();
@@ -14,6 +15,7 @@ public class DealerTest {
         Assertions.assertNull(dealer.openCard());
     }
 
+    /** Check correctness of .openCard(). */
     @Test
     public void getClosedCard() {
         Deck deck = new Deck();
@@ -27,6 +29,7 @@ public class DealerTest {
         Assertions.assertEquals(score, closedCard.getValue());
     }
 
+    /** check .resetGame() correctness. */
     @Test
     public void dealerReset() {
         Deck deck = new Deck();
@@ -35,6 +38,7 @@ public class DealerTest {
         dealer.resetGame(deck);
     }
 
+    /** Check .getStatus() */
     @Test
     public void dealerGetStatus() {
         Deck deck = new Deck();
@@ -43,6 +47,7 @@ public class DealerTest {
         dealer.getStatus();
     }
 
+    /** Check .getCard(). */
     @Test
     public void dealerGetCard() {
         Deck deck = new Deck();

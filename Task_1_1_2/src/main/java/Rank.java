@@ -2,7 +2,7 @@
 * Enumeration for card's ranks
 */
 
-/* Enumeration of all card ranks */
+/** Enumeration of all card ranks. */
 public enum Rank {
     Ace,
     Jack,

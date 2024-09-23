@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-/* This class inherited by Player and Dealer */
+/** This class inherited by Player and Dealer. */
 public abstract class Participant {
     protected ArrayList<Card> cards;
     protected int score;
@@ -20,7 +20,10 @@ public abstract class Participant {
         return card;
     }
 
-    // Start round with new deck and clear hand
+    /**
+     * 1. Participant gets new deck
+     * 2. Clear it's hand.
+     */
     public void resetGame(Deck deck) {
         this.deck = deck;
         this.cards = new ArrayList<>();

@@ -1,8 +1,9 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-/* All test for Card class */
+/** All test for Card class. */
 public class CardTest {
+    /** Check .getSuit() correctness. */
     @Test
     public void suitEquation() {
         Suit suit = Suit.Hearts;
@@ -12,6 +13,7 @@ public class CardTest {
         Assertions.assertEquals(card.getSuit(), suit);
     }
 
+    /** Check .getRank() correctness. */
     @Test
     public void rankEquation() {
         Rank rank = Rank.Jack;
@@ -21,6 +23,7 @@ public class CardTest {
         Assertions.assertEquals(card.getRank(), rank);
     }
 
+    /** Check .getValue() correctness. */
     @Test
     public void valueEquation() {
         Rank rank = Rank.Queen;

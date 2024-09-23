@@ -1,7 +1,7 @@
-/*
+/**
  * It's driver of our application
  * There will be the function that starts game
- * This function calls from Main.main once
+ * This function calls from Main.main once.
  */
 
 import java.io.IOException;
