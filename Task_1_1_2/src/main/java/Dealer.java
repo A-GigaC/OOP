@@ -1,12 +1,12 @@
 import java.util.ArrayList;
 
-/*
+/* *
  * Dealer class - describes the dealer's behaviour.
  * */
 public class Dealer extends Participant {
     private Card closedCard;
 
-    /*
+    /* *
      * Constructor.
      * */
     public Dealer(Deck deck) {
@@ -15,7 +15,7 @@ public class Dealer extends Participant {
         this.score = 0;
     }
 
-    /*
+    /* *
      * *Dealer peeks card from deck and keep it closed.
      * */
     public void getClosedCard() {
@@ -23,7 +23,7 @@ public class Dealer extends Participant {
         score += closedCard.getValue();
     }
 
-    /*
+    /* *
      * Dealer opens closed card.
      * */
     public Card openCard() {
@@ -33,7 +33,7 @@ public class Dealer extends Participant {
         return tmpForClosedCard;
     }
 
-    /*
+    /* *
      * Prints cards and total value of Dealer.
      * */
     public void getStatus() {
