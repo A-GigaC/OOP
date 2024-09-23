@@ -40,11 +40,11 @@ public class Dealer extends Participant {
         String status = "\tDealer cards: [";
         if (closedCard != null) {
             status = status.concat(
-                    cards.getFirst().getRank().name()
+                    cards.get(0).getRank().name()
                             + " "
-                            + cards.getFirst().getSuit().name()
+                            + cards.get(0).getSuit().name()
                             + " ("
-                            + cards.getFirst().getValue()
+                            + cards.get(0).getValue()
                             + "), <closed card>]"
             );
         } else {
