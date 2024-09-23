@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 
+/* Player class - describes the player's behaviour */
 public class Player extends Participant {
 
     public Player(Deck deck) {
@@ -15,11 +16,11 @@ public class Player extends Participant {
         int cardIndex = 1;
         for (Card card : cards) {
             status = status.concat(
-                    card.getRank().name() +
-                            " " +
-                            card.getSuit().name() +
-                            " (" +
-                            card.getValue()
+                    card.getRank().name()
+                            + " "
+                            + card.getSuit().name()
+                            + " ("
+                            + card.getValue()
             );
 
             status = status.concat(cardIndex < cards.size() ? "), " : ") ");

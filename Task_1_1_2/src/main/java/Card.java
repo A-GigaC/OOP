@@ -2,6 +2,7 @@
  * Card class
  */
 
+/* Card class */
 public class Card {
     // Class parameters
     private final Suit suit;

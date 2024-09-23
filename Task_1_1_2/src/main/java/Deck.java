@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Stack;
 
+/* Deck class as a wrapper on stack */
 public class Deck {
     // The basement of Deck-class
     private Stack<Card> deck;

@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 
+/* Dealer class - describes the dealer's behaviour */
 public class Dealer extends Participant {
     private Card closedCard;
 
@@ -36,11 +37,11 @@ public class Dealer extends Participant {
             int cardIndex = 1;
             for (Card card : cards) {
                 status = status.concat(
-                        card.getRank().name() +
-                                " " +
-                                card.getSuit().name() +
-                                " (" +
-                                card.getValue()
+                        card.getRank().name()
+                                + " "
+                                + card.getSuit().name()
+                                + " ("
+                                + card.getValue()
                 );
 
                 status = status.concat(cardIndex < cards.size() ? "), " : ")");

@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 
+/* This class inherited by Player and Dealer */
 public abstract class Participant {
     protected ArrayList<Card> cards;
     protected int score;

@@ -5,7 +5,7 @@
  */
 
 import java.io.IOException;
-
+/* BlackJack class - there is the main logic of the game */
 public class Blackjack {
     private Deck deck;
     private final Player player;
