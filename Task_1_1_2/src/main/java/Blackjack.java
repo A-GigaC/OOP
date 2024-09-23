@@ -27,18 +27,23 @@ public class Blackjack {
         System.out.println("Wellcome to blackjack");
     }
 
-    /** The main game logcic. */
+    /** Round loop. */
     public void playGame() throws Exception {
+        int roundStatus;
         while (true) {
             try {
-                round();
+                roundStatus = round();
+                if (roundStatus != 0) {
+                    break;
+                }
             } catch (Exception e) {
                 throw e;
             }
         }
     }
 
-    private void round() throws IOException {
+    /** The main game logic. */
+    private int round() throws IOException {
         if (roundNumber != 0) {
             deck = new Deck();
             player.resetGame(deck);
@@ -65,10 +70,10 @@ public class Blackjack {
 
         if (player.getScore() == 21) {
             playerWins();
-            return;
+            return 0;
         } else if (player.getScore() > 21) {
             dealerWins();
-            return;
+            return 0;
         }
 
         System.out.println("Input '1' to peek the card and '0' to stop your turn; 'q' for exit");
@@ -104,15 +109,15 @@ public class Blackjack {
                 // Check win/loosing/continuation
                 if (player.getScore() == 21) {
                     playerWins();
-                    return;
+                    return 0;
                 } else if (player.getScore() > 21) {
                     dealerWins();
-                    return;
+                    return 0;
                 }
             } else if (input == '0') {
                 break;
             } else if (input == 'q') {
-                return;
+                return 1;
             }
         }
 
@@ -135,7 +140,7 @@ public class Blackjack {
 
         // Check dealer's score
         if (checkRoundEnd() > 0) {
-            return;
+            return 0;
         }
 
         // Dealer peek cards
@@ -154,7 +159,7 @@ public class Blackjack {
 
             // Check dealer's score
             if (checkRoundEnd() > 0) {
-                return;
+                return 0;
             }
         }
     }
