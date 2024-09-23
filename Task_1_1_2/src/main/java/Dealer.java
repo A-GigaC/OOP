@@ -26,12 +26,12 @@ public class Dealer extends Participant {
         String status = "\tDealer cards: [";
         if (closedCard != null) {
             status = status.concat(
-                    cards.getFirst().getRank().name() +
-                            " " +
-                            cards.getFirst().getSuit().name() +
-                            " (" +
-                            cards.getFirst().getValue() +
-                            "), <closed card>]"
+                    cards.getFirst().getRank().name()
+                            + " "
+                            + cards.getFirst().getSuit().name()
+                            + " ("
+                            + cards.getFirst().getValue()
+                            + "), <closed card>]"
             );
         } else {
             int cardIndex = 1;
