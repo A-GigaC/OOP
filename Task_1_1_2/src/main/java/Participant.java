@@ -6,11 +6,12 @@ public abstract class Participant {
     protected int score;
     protected Deck deck;
 
+    /** Get score of participant. */
     public int getScore() {
         return score;
     }
 
-    // Peek a card
+    /** Pop card from top of the deck. */
     public Card getCard() {
         Card card = deck.peek();
 

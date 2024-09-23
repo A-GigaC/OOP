@@ -3,6 +3,7 @@ import java.util.ArrayList;
 /** Player class - describes the player's behaviour. */
 public class Player extends Participant {
 
+    /** Player constructor. */
     public Player(Deck deck) {
         this.cards = new ArrayList<>();
         this.score = 0;

@@ -14,6 +14,7 @@ public class Blackjack {
     private int playerWins;
     private int dealerWins;
 
+    /** Blackjack constructor. */
     public Blackjack() {
         deck = new Deck();
         player = new Player(deck);
@@ -26,6 +27,7 @@ public class Blackjack {
         System.out.println("Wellcome to blackjack");
     }
 
+    /** The main game logcic. */
     public void playGame() throws Exception {
         while (true) {
             try {
@@ -157,20 +159,24 @@ public class Blackjack {
         }
     }
 
+    /** Say that player has won and increments player's wins counter. */
     private void playerWins() {
         playerWins++;
         System.out.println("\nYou won! " + playerWins + ":" + dealerWins + "\n");
     }
 
+    /** Say that dealer has won and increments dealer's wins counter. */
     private void dealerWins() {
         dealerWins++;
         System.out.println("\nDealer won :{) " + playerWins + ":" + dealerWins + "\n");
     }
 
+    /** Say that this round jas ended with draw. */
     private void draw() {
         System.out.println("\nDraw! " + playerWins + ":" + dealerWins + "\n");
     }
 
+    /** Check that round ended. */
     private int checkRoundEnd() {
         if (dealer.getScore() == 21) {
             dealerWins();
@@ -187,7 +193,7 @@ public class Blackjack {
                 return 1;
             } else {
                 draw();
-                return 0;
+                return 3;
             }
         }
         return 0;

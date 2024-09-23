@@ -6,7 +6,6 @@
  * Card class.
  * */
 public class Card {
-    // Class parameters
     private final Suit suit;
     private final Rank rank;
 
@@ -16,15 +15,17 @@ public class Card {
         this.rank = rank;
     }
 
-    /** Getters. */
+    /** Getter for suit. */
     public Suit getSuit() {
         return suit;
     }
 
+    /** Getter for rank. */
     public Rank getRank() {
         return rank;
     }
 
+    /** Getter for value. */
     public int getValue() {
         switch (rank) {
             case Two:
