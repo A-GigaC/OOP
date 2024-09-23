@@ -3,7 +3,7 @@ import org.junit.jupiter.api.Test;
 
 public class DeckTest {
     @Test
-    public void deckCardUniqness() {
+    public void deckCardUniqueness() {
         Deck deck = new Deck();
         Card card1 = deck.peek();
         Card card2 = deck.peek();
