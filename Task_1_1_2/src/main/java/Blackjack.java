@@ -87,9 +87,12 @@ public class Blackjack {
                 // Output new status
                 gettedCard = player.getCard();
                 System.out.println(
-                        "You have got " + gettedCard.getRank() +
-                                " " + gettedCard.getSuit() +
-                                " (" + gettedCard.getValue() + ")"
+                        "You have got " +
+                                gettedCard.getRank() +
+                                " " +
+                                gettedCard.getSuit() +
+                                " (" +
+                                gettedCard.getValue() + ")"
                 );
 
                 player.getStatus();
@@ -139,7 +142,9 @@ public class Blackjack {
                             gettedCard.getRank() +
                             " " +
                             gettedCard.getSuit() +
-                            " (" + gettedCard.getValue() + ")"
+                            " (" +
+                            gettedCard.getValue() +
+                            ")"
             );
 
             // Check dealer's score

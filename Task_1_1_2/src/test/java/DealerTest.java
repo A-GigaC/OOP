@@ -1,6 +1,7 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+/* All tests for Dealer class */
 public class DealerTest {
     @Test
     public void openClosedCardTwice() {

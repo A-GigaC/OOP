@@ -1,6 +1,7 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+/* All tests for Deck class */
 public class DeckTest {
     @Test
     public void deckCardUniqueness() {

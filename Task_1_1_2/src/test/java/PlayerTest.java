@@ -1,6 +1,7 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+/* All tests for Player class */
 public class PlayerTest {
     @Test
     public void playerGetScore() {

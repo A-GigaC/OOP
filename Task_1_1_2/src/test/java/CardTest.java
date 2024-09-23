@@ -1,6 +1,7 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+/* All test for Card class */
 public class CardTest {
     @Test
     public void suitEquation() {
