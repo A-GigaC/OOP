@@ -162,6 +162,7 @@ public class Blackjack {
                 return 0;
             }
         }
+        return 0;
     }
 
     /** Say that player has won and increments player's wins counter. */
