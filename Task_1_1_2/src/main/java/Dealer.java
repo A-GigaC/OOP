@@ -36,10 +36,11 @@ public class Dealer extends Participant {
     /**
      * Prints cards and total value of Dealer.
      * */
+    @Override
     public void getStatus() {
-        String status = "\tDealer cards: [";
+        StringBuilder statusBuilder = new StringBuilder("\tDealer cards: [");
         if (closedCard != null) {
-            status = status.concat(
+            statusBuilder.append(
                     cards.get(0).getRank().name()
                             + " "
                             + cards.get(0).getSuit().name()
@@ -50,7 +51,7 @@ public class Dealer extends Participant {
         } else {
             int cardIndex = 1;
             for (Card card : cards) {
-                status = status.concat(
+                statusBuilder.append(
                         card.getRank().name()
                                 + " "
                                 + card.getSuit().name()
@@ -58,12 +59,12 @@ public class Dealer extends Participant {
                                 + card.getValue()
                 );
 
-                status = status.concat(cardIndex < cards.size() ? "), " : ")");
+                statusBuilder.append(cardIndex < cards.size() ? "), " : ")");
             }
 
-            status += "] => " + score;
+            statusBuilder.append("] => " + score);
         }
 
-        System.out.println(status);
+        System.out.println(statusBuilder.toString());
     }
 }

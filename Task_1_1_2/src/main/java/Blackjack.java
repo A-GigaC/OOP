@@ -5,6 +5,7 @@
  */
 
 import java.io.IOException;
+
 /* BlackJack class - there is the main logic of the game */
 public class Blackjack {
     private Deck deck;
@@ -14,7 +15,9 @@ public class Blackjack {
     private int playerWins;
     private int dealerWins;
 
-    /** Blackjack constructor. */
+    /**
+     * Blackjack constructor.
+     */
     public Blackjack() {
         deck = new Deck();
         player = new Player(deck);
@@ -27,7 +30,9 @@ public class Blackjack {
         System.out.println("Wellcome to blackjack");
     }
 
-    /** Round loop. */
+    /**
+     * Round loop.
+     */
     public void playGame() throws Exception {
         int roundStatus;
         while (true) {
@@ -42,8 +47,11 @@ public class Blackjack {
         }
     }
 
-    /** The main game logic. */
-    private int round() throws IOException {
+    /**
+     * The main game logic.
+     */
+    // TODO: декомпозировать round
+    private int round() throws Exception {
         if (roundNumber != 0) {
             deck = new Deck();
             player.resetGame(deck);
@@ -57,7 +65,6 @@ public class Blackjack {
         // Dealer dealt the cards
         player.getCard();
         player.getCard();
-
         dealer.getCard();
         dealer.getClosedCard();
 
@@ -66,14 +73,37 @@ public class Blackjack {
         dealer.getStatus();
 
         // Player's turn
+        int playerTurnStatus;
+        try {
+            playerTurnStatus = playersTurn();
+            if (playerTurnStatus == 1) {
+                return 0;
+            } else if (playerTurnStatus == 2) {
+                return 2;
+            }
+        } catch (Exception e) {
+            throw e;
+        }
+
+        // Dealer's turn
+        dealersTurn();
+
+        return 0;
+    }
+
+    /**
+     * PLayer's turn logic.
+     */
+    int playersTurn() throws Exception {
+        // Player's turn
         System.out.println("Your turn\n-------");
 
         if (player.getScore() == 21) {
             playerWins();
-            return 0;
+            return 1;
         } else if (player.getScore() > 21) {
             dealerWins();
-            return 0;
+            return 1;
         }
 
         System.out.println("Input '1' to peek the card and '0' to stop your turn; 'q' for exit");
@@ -92,17 +122,7 @@ public class Blackjack {
 
             if (input == '1') {
                 // Output new status
-                gettedCard = player.getCard();
-                System.out.println(
-                        "You have got "
-                                + gettedCard.getRank()
-                                + " "
-                                + gettedCard.getSuit()
-                                + " ("
-                                + gettedCard.getValue()
-                                + ")"
-                );
-
+                playersGettedCard(player.getCard());
                 player.getStatus();
                 dealer.getStatus();
 
@@ -112,77 +132,96 @@ public class Blackjack {
                     return 0;
                 } else if (player.getScore() > 21) {
                     dealerWins();
-                    return 0;
+                    return 1;
                 }
             } else if (input == '0') {
                 break;
             } else if (input == 'q') {
-                return 1;
-            }
-        }
-
-        // Dealer's turn
-        System.out.println("Dealer's turn\n-------");
-
-        Card closedCard = dealer.openCard();
-
-        System.out.println(
-                "The dealer opened a closed card "
-                        + closedCard.getRank()
-                        + " "
-                        + closedCard.getSuit()
-                        + " ("
-                        + closedCard.getValue()
-                        + ")"
-        );
-        player.getStatus();
-        dealer.getStatus();
-
-        // Check dealer's score
-        if (checkRoundEnd() > 0) {
-            return 0;
-        }
-
-        // Dealer peek cards
-        while (dealer.getScore() < 17) {
-            gettedCard = dealer.getCard();
-
-            System.out.println(
-                    "Dealer has got "
-                            + gettedCard.getRank()
-                            + " "
-                            + gettedCard.getSuit()
-                            + " ("
-                            + gettedCard.getValue()
-                            + ")"
-            );
-
-            // Check dealer's score
-            if (checkRoundEnd() > 0) {
-                return 0;
+                return 2;
             }
         }
         return 0;
     }
 
-    /** Say that player has won and increments player's wins counter. */
+    /** Dealer's turn logic. */
+    private void dealersTurn() {
+        System.out.println("Dealer's turn\n-------");
+        dealersGettedCard(dealer.openCard(), true);
+        player.getStatus();
+        dealer.getStatus();
+
+        // Check dealer's score
+        if (checkRoundEnd() > 0) {
+            return ;
+        }
+
+        // Dealer peek cards
+        while (dealer.getScore() < 17) {
+            dealersGettedCard(dealer.getCard(), false);
+            // Check dealer's score
+            if (checkRoundEnd() > 0) {
+                return ;
+            }
+        }
+
+        return ;
+    }
+    /**
+     * Say that player has won and increments player's wins counter.
+     */
     private void playerWins() {
         playerWins++;
         System.out.println("\nYou won! " + playerWins + ":" + dealerWins + "\n");
     }
 
-    /** Say that dealer has won and increments dealer's wins counter. */
+    /**
+     * Say that dealer has won and increments dealer's wins counter.
+     */
     private void dealerWins() {
         dealerWins++;
         System.out.println("\nDealer won :{) " + playerWins + ":" + dealerWins + "\n");
     }
 
-    /** Say that this round jas ended with draw. */
+    /**
+     * Say that this round jas ended with draw.
+     */
     private void draw() {
         System.out.println("\nDraw! " + playerWins + ":" + dealerWins + "\n");
     }
 
-    /** Check that round ended. */
+    /**
+     * Dealers's getted card.
+     */
+    private void dealersGettedCard(Card gettedCard, boolean wasClosed) {
+        System.out.println(
+                wasClosed ? "The dealer opened a closed card " : "Dealer has got "
+                        + gettedCard.getRank()
+                        + " "
+                        + gettedCard.getSuit()
+                        + " ("
+                        + gettedCard.getValue()
+                        + ")"
+        );
+    }
+
+    /**
+     * Player's getted card.
+     */
+    private void playersGettedCard(Card gettedCard) {
+        System.out.println(
+                "You have got the card "
+                        + gettedCard.getRank()
+                        + " "
+                        + gettedCard.getSuit()
+                        + " ("
+                        + gettedCard.getValue()
+                        + ")"
+        );
+    }
+
+    /**
+     * Check that round ended.
+     */
     private int checkRoundEnd() {
         if (dealer.getScore() == 21) {
             dealerWins();

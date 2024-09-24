@@ -10,13 +10,14 @@ public class Player extends Participant {
         this.deck = deck;
     }
 
-    /** Get user status as string. */
+    /** Get player status as string. */
+    // TODO: string-builder
+    @Override
     public void getStatus() {
-        String status = "\tYour cards: [";
-
+        StringBuilder statusBuilder = new StringBuilder("\tYour cards: [");
         int cardIndex = 1;
         for (Card card : cards) {
-            status = status.concat(
+            statusBuilder.append(
                     card.getRank().name()
                             + " "
                             + card.getSuit().name()
@@ -24,9 +25,9 @@ public class Player extends Participant {
                             + card.getValue()
             );
 
-            status = status.concat(cardIndex < cards.size() ? "), " : ") ");
+            statusBuilder.append(cardIndex < cards.size() ? "), " : ") ");
         }
 
-        System.out.println(status.concat("] => " + score));
+        System.out.println(statusBuilder.toString() + "] => " + score);
     }
 }

@@ -30,4 +30,7 @@ public abstract class Participant {
         this.cards = new ArrayList<>();
         this.score = 0;
     }
+
+    /** Get paricipant status as string. */
+    abstract public void getStatus();
 }
