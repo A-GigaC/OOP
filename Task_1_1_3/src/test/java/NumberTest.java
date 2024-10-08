@@ -28,7 +28,7 @@ public class NumberTest {
     @Test
     public void derivative() {
         Number number = new Number(8);
-        Assertions.assertEquals(number.derivative("aboba"), 0);
+        Assertions.assertEquals(number.derivative("aboba").eval(""), 0);
 
         number.print();
     }

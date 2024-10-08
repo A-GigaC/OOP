@@ -30,7 +30,7 @@ public class VariableTest {
     @Test
     public void derivative() {
         Variable variable = new Variable("x");
-        Assertions.assertEquals(variable.derivative("x"), 1);
+        Assertions.assertEquals(variable.derivative("x").eval(""), 1);
     }
 
     /**
@@ -39,7 +39,8 @@ public class VariableTest {
     @Test
     public void derivativeOnOtherVariable() {
         Variable variable = new Variable("x");
-        Assertions.assertEquals(variable.derivative("aboba"), 0);
+        Assertions.assertEquals(
+                variable.derivative("aboba").eval(""), 0);
 
         variable.print();
     }
