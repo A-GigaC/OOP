@@ -23,7 +23,8 @@ public class Variable extends AtomicExpression {
         if (!Arrays.asList(splitVariablesList).contains(name)) {
             throw new RuntimeException("Variable '" + name + "' not found");
         }
-        return Integer.parseInt(splitVariablesList[Arrays.asList(splitVariablesList).indexOf(name) + 2]);
+        return Integer.parseInt(
+                splitVariablesList[Arrays.asList(splitVariablesList).indexOf(name) + 2]);
     }
 
     /**

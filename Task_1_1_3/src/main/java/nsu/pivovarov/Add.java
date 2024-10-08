@@ -30,6 +30,10 @@ public class Add extends NonAtomicExpression {
      * Implements string representation.
      */
     public String stringRepresentation() {
-        return "(" + leftOperand.stringRepresentation() + " + " + rightOperand.stringRepresentation() + ")";
+        return "("
+                + leftOperand.stringRepresentation()
+                + " + "
+                + rightOperand.stringRepresentation()
+                + ")";
     }
 }
