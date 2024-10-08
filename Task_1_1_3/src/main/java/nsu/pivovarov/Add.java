@@ -23,7 +23,10 @@ public class Add extends NonAtomicExpression {
      * Implements derivative.
      */
     public Expression derivative(String variableName) {
-        return new Add(leftOperand.derivative(variableName), rightOperand.derivative(variableName));
+        return new Add(
+                leftOperand.derivative(variableName),
+                rightOperand.derivative(variableName)
+        );
     }
 
     /**

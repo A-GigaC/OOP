@@ -36,6 +36,9 @@ public class DivTest {
     public void derivative() {
         Div div = new Div(new Number(10), new Variable("x"));
         Expression divDerivative = div.derivative("x");
-        Assertions.assertEquals(divDerivative.stringRepresentation(), "(((0 * x) - (10 * 1)) / (x * x))");
+        Assertions.assertEquals(
+                divDerivative.stringRepresentation(),
+                "(((0 * x) - (10 * 1)) / (x * x))"
+        );
     }
 }

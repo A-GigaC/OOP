@@ -16,14 +16,17 @@ public class Sub extends NonAtomicExpression {
      * Implements eval.
      */
     public int eval(String variablesWithValues) {
-        return leftOperand.eval(variablesWithValues) - rightOperand.eval(variablesWithValues);
+        return leftOperand.eval(variablesWithValues)
+                - rightOperand.eval(variablesWithValues);
     }
 
     /**
      * Implements derivative.
      */
     public Expression derivative(String variableName) {
-        return new Sub(leftOperand.derivative(variableName), rightOperand.derivative(variableName));
+        return new Sub(
+                leftOperand.derivative(variableName),
+                rightOperand.derivative(variableName));
     }
 
     /**
