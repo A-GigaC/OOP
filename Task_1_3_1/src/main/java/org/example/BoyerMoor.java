@@ -27,7 +27,7 @@ public class BoyerMoor {
         while (ringedBuffer.getNext(offset)) {
             couple = ringedBuffer.compareStrings(arrayPattern);
             if (couple.character == '\u001a') {
-                answer.add(ringedBuffer.absIndex - 1);
+                answer.add(ringedBuffer.absIndex - 2);
                 offset = 1;
             } else {
                 offset = max(1, couple.index - stopCharacter[couple.character]);

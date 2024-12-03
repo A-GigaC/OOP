@@ -1,9 +1,7 @@
 package org.example;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.io.*;
+import java.nio.charset.StandardCharsets;
 
 /**
  * RingedBuffer.
@@ -13,7 +11,7 @@ public class RingedBuffer {
     int size;
     int index;
     int absIndex;
-    FileInputStream stream;
+    InputStreamReader stream;
 
 
     /**
@@ -26,7 +24,7 @@ public class RingedBuffer {
         absIndex = index;
         File file = new File(fileName);
         try {
-            stream = new FileInputStream(file);
+            stream = new InputStreamReader(new FileInputStream(file), StandardCharsets.UTF_8);
         } catch (FileNotFoundException ex) {
             System.err.print("Not found" + fileName);
             throw new RuntimeException(ex);
