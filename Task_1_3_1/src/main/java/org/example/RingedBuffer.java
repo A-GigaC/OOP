@@ -19,7 +19,7 @@ public class RingedBuffer {
     /**
      * Constructor.
      */
-    RingedBuffer(int size, String fileName) {
+    public RingedBuffer(int size, String fileName) {
         this.size = size;
         string = new char[size];
         index = size - 1;

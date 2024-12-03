@@ -1,75 +1,22 @@
 package org.example;
-
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.util.ArrayList;
-import java.util.List;
 
+/**
+ * BoyerMoor class.
+ */
 public class BoyerMoor {
     private static final int alphabetLength = 65536;
 
+    /**
+     * Max of two ints.
+     */
     private static int max(int a, int b) {
         return (a > b) ? a : b;
     }
 
-//    public static ArrayList<Integer> find(String filename, String pattern) throws FileNotFoundException {
-//        ArrayList<Integer> answer = new ArrayList<>();
-//        int ops = 0;
-//        try {
-//            // Для демо!!!!
-//            List<String> lines = Files.readAllLines(Path.of(filename));
-//            StringBuilder stringBuilder = new StringBuilder();
-//            for (String line : lines) {
-//                stringBuilder.append(line);
-//                stringBuilder.append("\n");
-//            }
-//            char[] text = stringBuilder.toString().toCharArray();
-//            RingBuffer
-//            // КОНЕЦ ДЕМО!!!
-//            // pre-calculations
-//            char[] substring = pattern.toCharArray();
-//            int[] stopCharacter = stopCharHeuristic(substring);
-//            // MAIN LOGIC
-//            int patternLength = pattern.length();
-//
-//            if (patternLength > text.length) {
-//                System.out.println("Pattern is too long");
-//                return answer;
-//            }
-//
-//            int j = patternLength - 1;
-//            int patternShift = 0;
-//
-//
-//            while (j + patternShift < text.length) {
-//                while (j >= 0 && substring[j] == text[patternShift + j]) {
-//                    j--;
-//                    ops++;
-//                }
-//                if (j < 0) {
-//                    answer.add(patternShift);
-//
-//                    patternShift += (patternShift + patternLength < text.length)
-//                            ? patternLength - stopCharacter[text[patternShift + patternLength]]
-//                            : 1;
-//                } else
-//                    patternShift += max(1, j - stopCharacter[text[patternShift + j]]);
-//
-//                j = patternLength - 1;
-//            }
-//
-//        } catch (Exception e) {
-//            System.out.println(e);
-//            System.out.println(ops);
-//            return answer;
-//        }
-//        System.out.println(ops);
-//        return answer;
-//    }
-
+    /**
+     * Find substring in file.
+     */
     public static ArrayList<Integer> find(String filename, String pattern) {
         RingedBuffer ringedBuffer = new RingedBuffer(pattern.length(), filename);
         ArrayList<Integer> answer = new ArrayList<>();
@@ -89,6 +36,9 @@ public class BoyerMoor {
         return answer;
     }
 
+    /**
+     * Stop-char heuristic.
+     */
     private static int[] stopCharHeuristic(char[] substring) {
         int[] stopCharacter = new int[alphabetLength];
         // Initialize all occurrences as -1
