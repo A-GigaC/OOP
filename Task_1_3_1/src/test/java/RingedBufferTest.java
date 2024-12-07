@@ -26,7 +26,7 @@ public class RingedBufferTest {
         RingedBuffer ringedBuffer = new RingedBuffer(pattern.length(), "abobaTest");
 
         Assertions.assertEquals(
-                ringedBuffer.compareStrings(pattern.toCharArray()).character,
+                ringedBuffer.compareStrings(pattern).character,
                 '\u001a'
         );
     }

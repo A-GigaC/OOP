@@ -1,4 +1,5 @@
 package org.example;
+import java.io.IOException;
 import java.util.ArrayList;
 
 /**
@@ -17,37 +18,38 @@ public class BoyerMoor {
     /**
      * Find substring in file.
      */
-    public static ArrayList<Integer> find(String filename, String pattern) {
+    public static ArrayList<Integer> find(String filename, String pattern) throws IOException {
         RingedBuffer ringedBuffer = new RingedBuffer(pattern.length(), filename);
         ArrayList<Integer> answer = new ArrayList<>();
-        char[] arrayPattern = pattern.toCharArray();
-        int[] stopCharacter = stopCharHeuristic(arrayPattern);
+        int[] stopCharacter = stopCharHeuristic(pattern);
         int offset = 0;
-        CharIndex couple;
+        StatusCharIndex couple;
         while (ringedBuffer.getNext(offset)) {
-            couple = ringedBuffer.compareStrings(arrayPattern);
-            if (couple.character == '\u001a') {
-                answer.add(ringedBuffer.absIndex - 2);
+            couple = ringedBuffer.compareStrings(pattern);
+            if (couple.status == 0) {
+                answer.add(couple.index + 1);
                 offset = 1;
             } else {
                 offset = max(1, couple.index - stopCharacter[couple.character]);
             }
         }
+        ringedBuffer.close();
+
         return answer;
     }
 
     /**
      * Stop-char heuristic.
      */
-    private static int[] stopCharHeuristic(char[] substring) {
+    private static int[] stopCharHeuristic(String pattern) {
         int[] stopCharacter = new int[alphabetLength];
         // Initialize all occurrences as -1
         for (int i = 0; i < alphabetLength; i++)
             stopCharacter[i] = -1;
 
         // Fill the actual value of last occurrence of a character
-        for (int i = 0; i < substring.length; i++)
-            stopCharacter[(int) substring[i]] = i;
+        for (int i = 0; i < pattern.length(); i++)
+            stopCharacter[(int) pattern.charAt(i)] = i;
 
         return stopCharacter;
     }

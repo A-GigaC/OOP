@@ -13,7 +13,6 @@ public class RingedBuffer {
     int absIndex;
     InputStreamReader stream;
 
-
     /**
      * Constructor.
      */
@@ -21,7 +20,7 @@ public class RingedBuffer {
         this.size = size;
         string = new char[size];
         index = size - 1;
-        absIndex = index;
+        absIndex = index + 1;
         File file = new File(fileName);
         try {
             stream = new InputStreamReader(new FileInputStream(file), StandardCharsets.UTF_8);
@@ -90,15 +89,22 @@ public class RingedBuffer {
     /**
      * Compare string in buffer with inputed char array.
      */
-    public CharIndex compareStrings(char[] charArray) {
+    public StatusCharIndex compareStrings(String pattern) {
         int iter = index;
         for (int i = size - 1; i >= 0; i--) {
-            if (charArray[i] != this.string[iter]) {
-                return new CharIndex(this.string[iter], i);
+            if (pattern.charAt(i) != this.string[iter]) {
+                return new StatusCharIndex(-1, this.string[iter], i);
             }
             iter = (iter - 1 < 0) ? size - 1 : iter - 1;
         }
 
-        return new CharIndex('\u001a', absIndex - size);
+        return new StatusCharIndex(0, '\u001a', absIndex - size);
+    }
+
+    /**
+     * Close.
+     */
+    public void close() throws IOException {
+        stream.close();
     }
 }

@@ -1,4 +1,4 @@
-import org.example.CharIndex;
+import org.example.StatusCharIndex;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -13,7 +13,7 @@ public class CharIndexTest {
     public void constructorTest() {
         char character = 'f';
         int integer = 42;
-        CharIndex ci = new CharIndex(character, integer);
+        StatusCharIndex ci = new StatusCharIndex(0, character, integer);
         Assertions.assertEquals(integer, ci.index);
         Assertions.assertEquals(character, ci.character);
     }

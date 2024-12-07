@@ -3,14 +3,16 @@ package org.example;
 /**
  * CharIndex class.
  */
-public class CharIndex {
+public class StatusCharIndex {
+    public int status;
     public char character;
     public int index;
 
     /**
      * Constructor.
      */
-    public CharIndex(char character, int index) {
+    public StatusCharIndex(int status, char character, int index) {
+        this.status = status;
         this.character = character;
         this.index = index;
     }
