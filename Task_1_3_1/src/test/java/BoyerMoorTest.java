@@ -40,9 +40,9 @@ public class BoyerMoorTest {
         OutputStreamWriter osw = new OutputStreamWriter(fos, StandardCharsets.UTF_8);
 
         Random random = new Random();
-
         for (int i = 1; i <= 6550; i++) {
-            if (indexes.contains(new Integer(i))) {
+            Integer integer = i;
+            if (indexes.contains(integer)) {
                 osw.write(pattern);
                 i += pattern.length();
             }
@@ -74,7 +74,6 @@ public class BoyerMoorTest {
         System.out.println(indexes);
         System.out.println(res);
         Assertions.assertArrayEquals(res.toArray(), indexes.toArray());
-
     }
 
     /**
@@ -94,7 +93,8 @@ public class BoyerMoorTest {
         Random random = new Random();
 
         for (int i = 1; i <= indexes.get(indexes.size() - 1) + pattern.length() * 2; i++) {
-            if (indexes.contains(new Integer(i))) {
+            Integer integer = i;
+            if (indexes.contains(integer)) {
                 osw.write(pattern);
                 i += pattern.length();
             }
