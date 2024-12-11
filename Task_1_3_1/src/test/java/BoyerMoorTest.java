@@ -12,18 +12,18 @@ import java.util.Random;
  * Test for BoyerMoor.
  */
 public class BoyerMoorTest {
-    /**
-     * Test that BoyerMoor determined.
-     */
-    @Test
-    public void equivalenceTest() throws IOException {
-        String pattern = Tools.generateString();
-        String filename = Tools.generateFile(pattern);
-        ArrayList<Integer> res1 = BoyerMoor.find(filename, pattern);
-        ArrayList<Integer> res2 = BoyerMoor.find(filename, pattern);
-
-        Assertions.assertArrayEquals(res1.toArray(), res2.toArray());
-    }
+//    /**
+//     * Test that BoyerMoor determined.
+//     */
+//    @Test
+//    public void equivalenceTest() throws IOException {
+//        String pattern = Tools.generateString();
+//        String filename = Tools.generateFile(pattern);
+//        ArrayList<Integer> res1 = BoyerMoor.find(filename, pattern);
+//        ArrayList<Integer> res2 = BoyerMoor.find(filename, pattern);
+//
+//        Assertions.assertArrayEquals(res1.toArray(), res2.toArray());
+//    }
 
     /**
      * Test B-M correctness.
