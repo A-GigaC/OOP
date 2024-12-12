@@ -1,7 +1,6 @@
 import org.example.BoyerMoor;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
@@ -46,7 +45,7 @@ public class BoyerMoorTest {
                 osw.write(pattern);
                 i += pattern.length();
             }
-            osw.write((char)random.nextInt());
+            osw.write((char) random.nextInt());
         }
 
         osw.close();
@@ -98,7 +97,7 @@ public class BoyerMoorTest {
                 osw.write(pattern);
                 i += pattern.length();
             }
-            osw.write((char)random.nextInt());
+            osw.write((char) random.nextInt());
         }
 
         osw.close();

@@ -1,4 +1,5 @@
 package org.example;
+
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -44,12 +45,14 @@ public class BoyerMoor {
     private static int[] stopCharHeuristic(String pattern) {
         int[] stopCharacter = new int[alphabetLength];
         // Initialize all occurrences as -1
-        for (int i = 0; i < alphabetLength; i++)
+        for (int i = 0; i < alphabetLength; i++) {
             stopCharacter[i] = -1;
+        }
 
         // Fill the actual value of last occurrence of a character
-        for (int i = 0; i < pattern.length(); i++)
+        for (int i = 0; i < pattern.length(); i++) {
             stopCharacter[(int) pattern.charAt(i)] = i;
+        }
 
         return stopCharacter;
     }

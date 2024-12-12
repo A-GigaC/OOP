@@ -1,10 +1,10 @@
 import org.example.RingedBuffer;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
-
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import org.junit.jupiter.api.Test;
+
 
 /**
  * Test for ringed buffer.
