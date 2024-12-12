@@ -10,6 +10,8 @@ public class Main {
      * Program's entrypoint.
      */
     public static void main(String[] args) throws IOException {
-        System.out.println(BoyerMoor.find("src/main/java/org/example/Main.java", "bal"));
+        System.out.println(
+                BoyerMoor.find("src/main/java/org/example/Main.java", "bal")
+        );
     }
 }
