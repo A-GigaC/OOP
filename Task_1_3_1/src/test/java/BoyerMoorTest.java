@@ -1,11 +1,11 @@
 import java.io.*;
 import org.example.BoyerMoor;
-import org.junit.jupiter.api.Assertions;
 import java.util.ArrayList;
 import java.util.Arrays;
-import org.junit.jupiter.api.Test;
-import java.nio.charset.StandardCharsets;
+import org.junit.jupiter.api.Assertions;
 import java.util.Random;
+import java.nio.charset.StandardCharsets;
+import org.junit.jupiter.api.Test;
 
 /**
  * Test for BoyerMoor.
