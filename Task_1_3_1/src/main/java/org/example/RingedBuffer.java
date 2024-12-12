@@ -63,7 +63,7 @@ public class RingedBuffer {
             if (ch == -1) {
                 return false;
             } else {
-                string[newIndex] = (char)ch;
+                string[newIndex] = (char) ch;
                 this.index = newIndex;
             }
 
@@ -98,7 +98,11 @@ public class RingedBuffer {
             iter = (iter - 1 < 0) ? size - 1 : iter - 1;
         }
 
-        return new StatusCharIndex(0, '\u001a', absIndex - size);
+        return new StatusCharIndex(
+                0,
+                '\u001a',
+                absIndex - size
+        );
     }
 
     /**
