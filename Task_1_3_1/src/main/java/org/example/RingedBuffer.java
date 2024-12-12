@@ -40,7 +40,7 @@ public class RingedBuffer {
     }
 
     /**
-     * Get next n-chars
+     * Get next n-chars.
      */
     public boolean getNext(int cntNext) {
         for (int i = 0; i < cntNext; i++) {
