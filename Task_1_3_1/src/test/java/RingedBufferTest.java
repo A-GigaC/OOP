@@ -3,7 +3,6 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
@@ -16,7 +15,7 @@ public class RingedBufferTest {
      */
     @Test
     public void compareStringsTest() throws IOException {
-        String pattern = Tools.generateString();
+        String pattern = "Aobobaobbaodsd";
         File file = new File("abobaTest");
 
         FileOutputStream fis = new FileOutputStream(file);
